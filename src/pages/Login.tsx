@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { Leaf } from "lucide-react";
+import { Activity } from "lucide-react";
 
 export function Login() {
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ export function Login() {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Store user info in localStorage or context if needed
         localStorage.setItem("user", JSON.stringify(data.user));
         navigate("/sync");
       } else {
@@ -40,24 +39,24 @@ export function Login() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex-1 flex flex-col p-8 bg-[#F5F5F0] max-w-3xl mx-auto w-full"
+      className="flex-1 flex flex-col p-8 bg-white max-w-3xl mx-auto w-full"
     >
       <div className="flex-1 flex flex-col items-center justify-center space-y-8">
-        <div className="w-16 h-16 rounded-full bg-stone-200 flex items-center justify-center">
-          <Leaf className="w-8 h-8 text-[#5A5A40]" />
+        <div className="w-16 h-16 rounded-full bg-[#1e3a5f] flex items-center justify-center">
+          <Activity className="w-8 h-8 text-white" />
         </div>
-        
+
         <div className="text-center space-y-4">
-          <h1 className="text-2xl font-serif font-medium text-stone-800">Momentum</h1>
-          <h2 className="text-3xl font-serif font-medium leading-tight text-stone-900">
-            Find your balance,<br />not just your limit.
+          <h1 className="text-2xl font-semibold text-gray-900">Momentum</h1>
+          <h2 className="text-3xl font-bold leading-tight text-gray-900">
+            Track your health,<br />reach your goals.
           </h2>
-          <p className="text-stone-500 text-sm max-w-[240px] mx-auto">
-            Join a community focused on sustainable progress and mindful movement.
+          <p className="text-gray-500 text-sm max-w-[280px] mx-auto">
+            Monitor your wellness journey with personalized insights and actionable data.
           </p>
         </div>
       </div>
@@ -77,7 +76,7 @@ export function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#5A5A40] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent"
               />
             </div>
             <div>
@@ -87,21 +86,21 @@ export function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#5A5A40] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent"
               />
             </div>
-            <button 
+            <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-4 bg-[#5A5A40] text-white rounded-full font-medium flex items-center justify-center space-x-2 hover:bg-[#4A4A30] transition-colors disabled:opacity-70"
+              className="w-full py-4 bg-[#1e3a5f] text-white rounded-full font-semibold flex items-center justify-center space-x-2 hover:bg-[#2d4a6f] transition-colors disabled:opacity-70 shadow-md"
             >
               <span>{isLoading ? "Logging in..." : "Login"}</span>
             </button>
             <div className="text-center pt-2">
-              <button 
+              <button
                 type="button"
                 onClick={() => setIsEmailLogin(false)}
-                className="text-stone-500 text-sm font-medium hover:text-stone-800"
+                className="text-gray-500 text-sm font-medium hover:text-gray-800"
               >
                 Back to other options
               </button>
@@ -109,22 +108,22 @@ export function Login() {
           </form>
         ) : (
           <>
-            <button 
+            <button
               onClick={() => navigate("/sync")}
-              className="w-full py-4 bg-stone-900 text-white rounded-full font-medium flex items-center justify-center space-x-2 hover:bg-stone-800 transition-colors"
+              className="w-full py-4 bg-gray-900 text-white rounded-full font-semibold flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors shadow-md"
             >
               <span>Continue with Apple</span>
             </button>
-            <button 
+            <button
               onClick={() => navigate("/sync")}
-              className="w-full py-4 bg-white text-stone-900 rounded-full font-medium border border-stone-200 flex items-center justify-center space-x-2 hover:bg-stone-50 transition-colors"
+              className="w-full py-4 bg-white text-gray-900 rounded-full font-semibold border border-gray-200 flex items-center justify-center space-x-2 hover:bg-gray-50 transition-colors shadow-sm"
             >
               <span>Continue with Google</span>
             </button>
             <div className="text-center pt-4">
-              <button 
+              <button
                 onClick={() => setIsEmailLogin(true)}
-                className="text-stone-500 text-sm font-medium hover:text-stone-800"
+                className="text-gray-500 text-sm font-medium hover:text-gray-800"
               >
                 Email Login
               </button>
@@ -132,10 +131,10 @@ export function Login() {
           </>
         )}
       </div>
-      
-      <div className="text-center text-xs text-stone-400 flex justify-center space-x-4">
-        <a href="#" className="hover:text-stone-600">Terms of Service</a>
-        <a href="#" className="hover:text-stone-600">Privacy Policy</a>
+
+      <div className="text-center text-xs text-gray-400 flex justify-center space-x-4">
+        <a href="#" className="hover:text-gray-600">Terms of Service</a>
+        <a href="#" className="hover:text-gray-600">Privacy Policy</a>
       </div>
     </motion.div>
   );
