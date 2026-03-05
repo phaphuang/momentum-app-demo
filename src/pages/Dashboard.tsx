@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Menu, Bell, Zap, Footprints, Moon, Droplet, Loader2 } from "lucide-react";
+import { Menu, Bell, Zap, Footprints, Moon, Droplet, Loader as Loader2 } from "lucide-react";
 
 interface UserData {
   display_name: string;

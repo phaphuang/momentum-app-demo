@@ -1,6 +1,6 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Home, BarChart2, Clock, User, Plus, Smile, Droplet, StretchHorizontal, Wind } from "lucide-react";
+import { Hop as Home, ChartBar as BarChart2, Clock, User, Plus, Smile, Droplet, StretchHorizontal, Wind } from "lucide-react";
 import { useState } from "react";
 
 export function Layout() {

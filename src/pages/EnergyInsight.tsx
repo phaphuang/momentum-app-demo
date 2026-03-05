@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowLeft, MoreVertical, Activity, Droplet, Wind, CheckCircle2, Timer } from "lucide-react";
+import { ArrowLeft, MoveVertical as MoreVertical, Activity, Droplet, Wind, CircleCheck as CheckCircle2, Timer } from "lucide-react";
 
 export function EnergyInsight() {
   const navigate = useNavigate();
